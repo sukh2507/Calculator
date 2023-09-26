@@ -3,6 +3,7 @@
     width: 25rem;
     border: 2px solid black;
     background-color: #5a88bf;
+    box-shadow: -15px 15px gray;
 }
 .scr{
     position: relative;
@@ -40,4 +41,9 @@
     margin: 0.9rem;
     font-size: 2rem;
     border: 1.2px solid black;
+}
+.calc:hover{
+    transition: 0.5s;
+    box-shadow: -10px 10px 10px gray;
+
 }
