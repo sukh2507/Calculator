@@ -1,52 +1,53 @@
-.calc{
-    height: 36.6rem;
-    width: 25rem;
-    border: 2px solid black;
-    background-color: #5a88bf;
-    box-shadow: -15px 15px gray;
-}
-.scr{
-    position: relative;
-    top: 5%;
-    height: 3.5rem;
-    width:23rem;
-    border: 2px solid black;
-    background-color: #b6ea13;
-}
-.op{
-    position: relative;
-    margin-top: 10%;
-    margin-left:0.4rem;
-    height: 3.5rem;
-    width: 3.5rem;
-    font-size: 30px;
-    font-weight:bolder ;
-    justify-content: center;
-    border: 1.2px solid black;
 
-}
+let n = document.getElementsByClassName('n');
+let scr=document.querySelector(".scr")
+let op=document.getElementsByClassName('op')
+let insc=""
+let plus;
+let left;
+let right;
+let dal;
 
-.number{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    /* border: 2px solid black; */
-    
-    
-}
-.n{
-    height: 4.8rem;
-    width: 4.8rem;
-    margin: 0.9rem;
-    font-size: 2rem;
-    border: 1.2px solid black;
-}
-.calc:hover{
-    transition: 0.5s;
-    box-shadow: -10px 10px 10px gray;
+for (const box of n) {
+  box.addEventListener('click', function onClick() {
+    scr.innerText+=box.innerText;
 
-}
-.n:active{
-    border: 7px solid #5a88bf;
-}
+    // function eval(){
+      insc=scr.innerText
+      // console.log(insc)
+      plus=insc.indexOf("+")
+      // console.log(plus);
+      left=scr.innerText.slice(0,plus)
+      right=scr.innerText.slice(plus+1,)
+      // console.log(right);
+      // console.log(left);
+      left=parseInt(left)
+      right=parseInt(right)
+      dal=left+right;
+      console.log(left+right);
+      for (const boxs of op){
+        boxs.addEventListener('click',function clicky(){
+          if (boxs.id=="eq"){
+            scr.innerText=dal;
+          }
+        })
+      }
+    // }
+    // eval()
+   
+  })}
+
+for(const box of op) {
+    box.addEventListener('click', function onClick() {
+    // console.dir(box)
+    // if (scr.innerText[0]== "+" ||"-" || "/" || "*"){
+    //     scr.innerText+=" ";
+    // }
+    if (box.id=="bs"||box.id=="eq"){
+        scr.innerText-=scr.innerText;
+    }
+    else if (box.id=="ope"){
+        scr.innerText+=box.innerText;
+    }
+    });
+  }
