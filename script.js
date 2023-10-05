@@ -1,4 +1,3 @@
-
 let n = document.getElementsByClassName('n');
 let scr=document.querySelector(".scr")
 let op=document.getElementsByClassName('op')
